@@ -3,13 +3,15 @@ import AuthLayout from "../modules/auth/ui/layouts/AuthLayout";
 import { LoginPage } from "../modules/auth/ui/pages/LoginPage";
 import AppCommonLayout from "../modules/common/ui/layouts/AppCommonLayout";
 import { EmployeesPage } from "../modules/employees/ui/layouts/EmployeesPage";
+import PrivateRoute from "./custom/PrivateRoute";
+import ProtectedRoute from "./custom/ProtectedRoute";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export const router: Remix = createBrowserRouter([
   {
     path: "auth",
-    element: <AuthLayout />,
+    element: <ProtectedRoute><AuthLayout /></ProtectedRoute>,
     children: [
       {
         path: "login",
@@ -19,7 +21,7 @@ export const router: Remix = createBrowserRouter([
   },
   {
     path: "app",
-    element: <AppCommonLayout />,
+    element: <PrivateRoute><AppCommonLayout /></PrivateRoute>,
     children: [
       {
         path: "employees",
