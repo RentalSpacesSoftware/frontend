@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../modules/auth/ui/layouts/AuthLayout";
 import { LoginPage } from "../modules/auth/ui/pages/LoginPage";
 import AppCommonLayout from "../modules/common/ui/layouts/AppCommonLayout";
-import { EmployeesPage } from "../modules/employees/ui/layouts/EmployeesPage";
+import { EmployeesPage } from "../modules/employees/ui/pages/EmployeesPage";
 import PrivateRoute from "./custom/PrivateRoute";
 import ProtectedRoute from "./custom/ProtectedRoute";
 
