@@ -1,20 +1,22 @@
 import { Button, Card, TextInput } from "flowbite-react"
-import React from "react"
-import { Link } from "react-router-dom"
-import { loginRequest } from "../../services/authService"
-import { useAuthStore } from "../../../../store/auth.store"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuthStore } from "../../../../store/auth/auth.store"
+import { loginUser } from "../../services/auth.service"
 
 export const LoginPage = () => {
 
-  const setToken = useAuthStore((state) => state.setToken)
+  const navigate = useNavigate()
+  const setToken = useAuthStore(state => state.setToken)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     const email = (e.currentTarget.elements[0] as HTMLInputElement).value
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value
 
-    const resLogin = await loginRequest({email, password})
-    setToken(resLogin.data.token)
+    const authRes = await loginUser({ email, password })
+    setToken(authRes.token)
+    if (authRes.token) navigate("/app/employees")
   }
 
   return (
