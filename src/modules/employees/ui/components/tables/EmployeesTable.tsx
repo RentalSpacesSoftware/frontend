@@ -4,7 +4,7 @@ import { EmployeesBodyTable } from "./EmployeesBodyTable"
 export const EmployeesTable = () => {
   return (
     <div className="overflow-x-auto py-4">
-      <Table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+      <Table className="divide-y divide-gray-200 dark:divide-gray-600">
         <Table.Head>
           <Table.HeadCell>Nombre</Table.HeadCell>
           <Table.HeadCell>Documento</Table.HeadCell>

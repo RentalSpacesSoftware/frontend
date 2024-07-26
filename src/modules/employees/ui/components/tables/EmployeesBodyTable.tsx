@@ -8,6 +8,7 @@ export const EmployeesBodyTable = () => {
 
   const employees: Employee[] = useEmployeeStore(state => state.employees)
   const getAllEmployees = useEmployeeStore(state => state.getAllEmployees)
+  const getEmployeeById = useEmployeeStore(state => state.getEmployeeById)
 
   useEffect(() => {
     getAllEmployees()
@@ -22,7 +23,9 @@ export const EmployeesBodyTable = () => {
           <Table.Cell>{employee.phone}</Table.Cell>
           <Table.Cell>{employee.email}</Table.Cell>
           <Table.Cell className="flex gap-2">
-            <Button className="bg-slate-800 rounded-xl"><PencilSquareIcon className="size-5 text-blue-50" /></Button>
+            <Button className="bg-slate-800 rounded-xl" onClick={() => getEmployeeById(employee.id)}>
+              <PencilSquareIcon className="size-5 text-blue-50" />
+            </Button>
             <Button className="bg-red-600"><TrashIcon className="size-5 text-blue-50" /></Button>
           </Table.Cell>
         </Table.Row>

@@ -32,8 +32,12 @@ export interface EmployeeState {
   employees: Employee[];
   employee: Employee;
   isLoading: boolean;
+  openCreateModal: boolean;
+  openUpdateModal: boolean;
 }
 
 export interface EmployeeActions {
+  closeUpdateModal: () => void;
   getAllEmployees: () => Promise<Employee[] | AxiosError>;
+  getEmployeeById: (id: number) => Promise<Employee | AxiosError>;
 }
