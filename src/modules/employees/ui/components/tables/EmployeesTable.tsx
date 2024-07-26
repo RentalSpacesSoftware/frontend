@@ -1,6 +1,5 @@
-import { TrashIcon } from "@heroicons/react/16/solid"
-import { PencilSquareIcon } from "@heroicons/react/16/solid"
-import { Button, Table } from "flowbite-react"
+import { Table } from "flowbite-react"
+import { EmployeesBodyTable } from "./EmployeesBodyTable"
 
 export const EmployeesTable = () => {
   return (
@@ -13,18 +12,7 @@ export const EmployeesTable = () => {
           <Table.HeadCell>Correo</Table.HeadCell>
           <Table.HeadCell>Acciones</Table.HeadCell>
         </Table.Head>
-        <Table.Body className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
-          <Table.Row>
-            <Table.Cell>Leonardo José</Table.Cell>
-            <Table.Cell>1006359668</Table.Cell>
-            <Table.Cell>3118882054</Table.Cell>
-            <Table.Cell>leonardo.email@mail.com</Table.Cell>
-            <Table.Cell className="flex gap-2">
-              <Button className="bg-slate-800 rounded-xl"><PencilSquareIcon className="size-5 text-blue-50" /></Button>
-              <Button className="bg-red-600"><TrashIcon className="size-5 text-blue-50" /></Button>
-            </Table.Cell>
-          </Table.Row>
-        </Table.Body>
+        <EmployeesBodyTable />
       </Table>
     </div>
   )

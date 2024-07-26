@@ -11,7 +11,8 @@ const axiosTool = axios.create({
 
 axiosTool.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token")
+    const authStorage = JSON.parse(localStorage.getItem("authStorage") || '{}')
+    const token = authStorage.state.token
     if (token) {
       config.headers = config.headers || {}
       config.headers.Authorization = `Bearer ${token}`
